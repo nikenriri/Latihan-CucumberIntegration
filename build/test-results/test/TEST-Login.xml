@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Login" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-19T05:18:53.513Z" hostname="MS-SILVER" time="0.084">
+  <properties/>
+  <testcase name="Login using valid email and password" classname="Login" time="0.084"/>
+  <system-out><![CDATA[
+?[1mScenario:?[22m Login using valid email and password   ?[90m# src/test/resources/login.feature:3?[39m
+  ?[32m✔?[39m ?[32m?[1mGiven ?[22muser is on login page?[39m                  ?[90m# com.niken.stepdef.LoginStepDef.userIsOnLoginPage()?[39m
+  ?[32m✔?[39m ?[32m?[1mAnd ?[22muser input username with ?[1m"standard_user"?[22m?[39m ?[90m# com.niken.stepdef.LoginStepDef.userInputUsernameWith(java.lang.String)?[39m
+  ?[32m✔?[39m ?[32m?[1mAnd ?[22muser input password with ?[1m"secret_sauce"?[22m?[39m  ?[90m# com.niken.stepdef.LoginStepDef.userInputPasswordWith(java.lang.String)?[39m
+  ?[32m✔?[39m ?[32m?[1mWhen ?[22mclick login button?[39m                      ?[90m# com.niken.stepdef.LoginStepDef.clickLoginButton()?[39m
+  ?[32m✔?[39m ?[32m?[1mThen ?[22muser is on homepage?[39m                     ?[90m# com.niken.stepdef.LoginStepDef.userIsOnHomepage()?[39m
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
