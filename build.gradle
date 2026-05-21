@@ -21,34 +21,28 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-//test {
-//    useJUnitPlatform()
-//    useJUnit()
-//}
 configurations {
     cucumberRuntime {
         extendsFrom testImplementation
     }
 }
 
-def tags= (findProperty('tags') == null) ? 'not @exclude' :  "${findProperty('tags')} and not @exclude"
+def tags = (findProperty('tags') == null) ? 'not @exclude' : "${findProperty('tags')} and not @exclude"
 
-task cucumber(){
-    description("Running Cucumber Test")
+tasks.register('cucumber', JavaExec) {
+    description = "Running Cucumber Test"
     dependsOn assemble, compileTestJava
-    doLast {
-        javaexec{
-            mainClass = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = [
-                    '--plugin', 'html:reports/test-report.html',
-                    '--plugin', 'pretty',
-                    '--glue', 'com.niken',
-                    '--tags', "${tags}",
-                    'src/test/resources'
-            ]
-        }
-    }
+    mainClass = "io.cucumber.core.cli.Main"
+    classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+    args = [
+            '--plugin', 'html:reports/test-report.html',
+            '--plugin', 'pretty',
+            '--glue', 'com.niken',
+            '--tags', "${tags}",
+            'src/test/resources'
+    ]
 }
 
-
+test {
+    useJUnitPlatform()
+}
